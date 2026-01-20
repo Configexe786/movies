@@ -12,7 +12,7 @@ def is_enabled(value, default):
         return default
 
 #---------------------------------------------------------------
-#---------------------------------------------------------------         ,
+#---------------------------------------------------------------
 SESSION = environ.get('SESSION', 'Media_search')
 API_ID = int(environ.get('API_ID', '30662744'))
 API_HASH = environ.get('API_HASH', 'daf3313647b820d29f42910957718fcd')
@@ -31,19 +31,19 @@ DATABASE_NAME = environ.get('DATABASE_NAME', "Netflirtbot")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 #---------------------------------------------------------------
 #---------------------------------------------------------------
-#----------- There will be channel id add in all these ---------
-LOG_API_CHANNEL = int(environ.get('LOG_API_CHANNEL', '0'))  
-BIN_CHANNEL = int(environ.get('BIN_CHANNEL','0'))
-DELETE_CHANNELS = int(environ.get('DELETE_CHANNELS','0'))
-LOG_VR_CHANNEL = int(environ.get('LOG_VR_CHANNEL', '0'))
-auth_channel = environ.get('AUTH_CHANNEL', '')
+#----------- Updated Channel IDs for Logs and Features ---------
+LOG_API_CHANNEL = int(environ.get('LOG_API_CHANNEL', '-1003499506128'))  
+BIN_CHANNEL = int(environ.get('BIN_CHANNEL','-1003284007507'))
+DELETE_CHANNELS = int(environ.get('DELETE_CHANNELS','-1003499506128'))
+LOG_VR_CHANNEL = int(environ.get('LOG_VR_CHANNEL', '-1003499506128'))
+auth_channel = environ.get('AUTH_CHANNEL', '') # Add ID if Force Sub needed
 SUPPORT_GROUP = int(environ.get('SUPPORT_GROUP', '0'))
-request_channel = environ.get('REQUEST_CHANNEL', '0')
-MOVIE_UPDATE_CHANNEL = int(environ.get('MOVIE_UPDATE_CHANNEL', '0'))
-SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'https://t.me/') 
+request_channel = environ.get('REQUEST_CHANNEL', '-1003499506128')
+MOVIE_UPDATE_CHANNEL = int(environ.get('MOVIE_UPDATE_CHANNEL', '-1003499506128'))
+SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'https://t.me/NetflirtMovieGroup') 
 #---------------------------------------------------------------
 #---------------------------------------------------------------
-IS_VERIFY = is_enabled('IS_VERIFY', False) # Verification turned OFF
+IS_VERIFY = is_enabled('IS_VERIFY', False) 
 #---------------------------------------------------------------
 TUTORIAL = environ.get("TUTORIAL", "")
 VERIFY_IMG = environ.get("VERIFY_IMG", "")
