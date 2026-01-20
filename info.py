@@ -36,7 +36,7 @@ DATABASE_NAME = environ.get('DATABASE_NAME', "Netflirtbot")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
 #---------------------------------------------------------------
-# Log & Feature Channels (Internal Routing)
+# Log & Feature Channels
 #---------------------------------------------------------------
 LOG_API_CHANNEL = int(environ.get('LOG_API_CHANNEL', '-1003499506128'))  
 BIN_CHANNEL = int(environ.get('BIN_CHANNEL','-1003284007507'))
@@ -49,9 +49,9 @@ MOVIE_UPDATE_CHANNEL = int(environ.get('MOVIE_UPDATE_CHANNEL', '-1003499506128')
 SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'https://t.me/NetflirtMovieGroup')
 
 #---------------------------------------------------------------
-# Verification & Shortener (Turned OFF as requested)
+# Verification Settings (OFF)
 #---------------------------------------------------------------
-IS_VERIFY = is_enabled('IS_VERIFY', False)
+IS_VERIFY = is_enabled('IS_VERIFY', 'False')
 TUTORIAL = environ.get("TUTORIAL", "")
 VERIFY_IMG = environ.get("VERIFY_IMG", "")
 SHORTENER_API = environ.get("SHORTENER_API", "")
@@ -64,21 +64,20 @@ TWO_VERIFY_GAP = int(environ.get('TWO_VERIFY_GAP', "14400"))
 THREE_VERIFY_GAP = int(environ.get('THREE_VERIFY_GAP', "14400"))
 
 #---------------------------------------------------------------
-# Filter Settings
+# Filter & Languages
 #---------------------------------------------------------------
 LANGUAGES = ["hindi", "english", "telugu", "tamil", "kannada", "malayalam", "bengali", "marathi", "gujarati", "punjabi"]
 QUALITIES = ["HdRip","web-dl" ,"bluray", "hdr", "fhd" , "240p", "360p", "480p", "540p", "720p", "960p", "1080p", "1440p", "2K", "2160p", "4k", "5K", "8K"]
-YEARS = [f'{i}' for i in range(2026 , 2002,-1 )]
-SEASONS = [f'season {i}'for i in range (1 , 23)]
+YEARS = [f'{i}' for i in range(2026, 2002, -1)]
+SEASONS = [f'season {i}' for i in range(1, 23)]
 REF_PREMIUM = 0
 PREMIUM_POINT = 1500
 
 #---------------------------------------------------------------
-# Formatting & Assets
+# Force Sub & Images
 #---------------------------------------------------------------
 AUTH_CHANNEL = int(auth_channel) if auth_channel and id_pattern.search(auth_channel) else None
 REQUEST_CHANNEL = int(request_channel) if request_channel and id_pattern.search(request_channel) else None
-
 START_IMG = (environ.get('START_IMG', 'https://i.ibb.co/qpxpGmC/image.jpg https://i.ibb.co/DQ35zLZ/image.jpg')).split()
 FORCESUB_IMG = environ.get('FORCESUB_IMG', 'https://i.ibb.co/ZNC1Hnb/ad3f2c88a8f2.jpg')
 REFER_PICS = (environ.get("REFER_PICS", "https://envs.sh/PSI.jpg")).split() 
@@ -87,25 +86,25 @@ SUBSCRIPTION = (environ.get('SUBSCRIPTION', 'https://graph.org/file/9f3f47c690bb
 REACTIONS = ["👀", "😱", "🔥", "😍", "🎉", "🥰", "😇", "⚡"]
 
 #---------------------------------------------------------------
-# Automation & UI
+# Auto Features
 #---------------------------------------------------------------
 FILE_AUTO_DEL_TIMER = int(environ.get('FILE_AUTO_DEL_TIMER', '600'))
-AUTO_FILTER = is_enabled('AUTO_FILTER', True)
-IS_PM_SEARCH = is_enabled('IS_PM_SEARCH', False)
+AUTO_FILTER = is_enabled('AUTO_FILTER', 'True')
+IS_PM_SEARCH = is_enabled('IS_PM_SEARCH', 'False')
 PORT = environ.get('PORT', '5000')
 MAX_BTN = int(environ.get('MAX_BTN', '8'))
-AUTO_DELETE = is_enabled('AUTO_DELETE', True)
+AUTO_DELETE = is_enabled('AUTO_DELETE', 'True')
 DELETE_TIME = int(environ.get('DELETE_TIME', 1200))
-IMDB = is_enabled('IMDB', False)
+IMDB = is_enabled('IMDB', 'False')
 FILE_CAPTION = environ.get('FILE_CAPTION', f'{script.FILE_CAPTION}')
 IMDB_TEMPLATE = environ.get('IMDB_TEMPLATE', f'{script.IMDB_TEMPLATE_TXT}')
-LONG_IMDB_DESCRIPTION = is_enabled('LONG_IMDB_DESCRIPTION', False)
-PROTECT_CONTENT = is_enabled('PROTECT_CONTENT', False)
-SPELL_CHECK = is_enabled('SPELL_CHECK', True)
-LINK_MODE = is_enabled('LINK_MODE', True)
+LONG_IMDB_DESCRIPTION = is_enabled('LONG_IMDB_DESCRIPTION', 'False')
+PROTECT_CONTENT = is_enabled('PROTECT_CONTENT', 'False')
+SPELL_CHECK = is_enabled('SPELL_CHECK', 'True')
+LINK_MODE = is_enabled('LINK_MODE', 'True')
 
 #---------------------------------------------------------------
-# Stream & Deployment
+# Deployment & Extra
 #---------------------------------------------------------------
 STREAM_MODE = bool(environ.get('STREAM_MODE', True)) 
 MULTI_CLIENT = False
@@ -117,27 +116,24 @@ else:
     ON_HEROKU = False
 URL = environ.get("FQDN", "")
 
-#---------------------------------------------------------------
-# Final Settings Mapping
-#---------------------------------------------------------------
 SETTINGS = {
-            'spell_check': SPELL_CHECK,
-            'auto_filter': AUTO_FILTER,
-            'file_secure': PROTECT_CONTENT,
-            'auto_delete': AUTO_DELETE,
-            'template': IMDB_TEMPLATE,
-            'caption': FILE_CAPTION,
-            'tutorial': TUTORIAL,
-            'shortner': SHORTENER_WEBSITE,
-            'api': SHORTENER_API,
-            'shortner_two': SHORTENER_WEBSITE2,
-            'api_two': SHORTENER_API2,
-            'log': LOG_VR_CHANNEL,
-            'imdb': IMDB,
-            'link': LINK_MODE, 
-            'is_verify': IS_VERIFY, 
-            'verify_time': TWO_VERIFY_GAP,
-            'shortner_three': SHORTENER_WEBSITE3,
-            'api_three': SHORTENER_API3,
-            'third_verify_time': THREE_VERIFY_GAP
+    'spell_check': SPELL_CHECK,
+    'auto_filter': AUTO_FILTER,
+    'file_secure': PROTECT_CONTENT,
+    'auto_delete': AUTO_DELETE,
+    'template': IMDB_TEMPLATE,
+    'caption': FILE_CAPTION,
+    'tutorial': TUTORIAL,
+    'shortner': SHORTENER_WEBSITE,
+    'api': SHORTENER_API,
+    'shortner_two': SHORTENER_WEBSITE2,
+    'api_two': SHORTENER_API2,
+    'log': LOG_VR_CHANNEL,
+    'imdb': IMDB,
+    'link': LINK_MODE, 
+    'is_verify': IS_VERIFY, 
+    'verify_time': TWO_VERIFY_GAP,
+    'shortner_three': SHORTENER_WEBSITE3,
+    'api_three': SHORTENER_API3,
+    'third_verify_time': THREE_VERIFY_GAP
 }
